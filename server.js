@@ -1,30 +1,9 @@
-const http = require('http');
-const express = require('express');
+const signalR = require("@microsoft/signalr");
 const { Server } = require('@microsoft/signalr');
 
-const app = express();
-app.use(cors({
-    origin: '*'
-  }));
-const server = http.createServer(app);
+const serviceEndpoint = "https://testingsignalruni.service.signalr.net";
+const accessKey = "Njkgs7ItG7T5OQopfkFfYuDwZL6akd71RKAXakKelA8=";
 
-// Create a SignalR server
-const signalR = new Server({
-  path: '/signalr',
-});
-
-// Define a hub and its methods
-signalR.hub('chatHub', {
-  async sendMessage(user, message) {
-    await this.clients.all.invoke('receiveMessage', user, message);
-  },
-});
-
-// Use SignalR middleware
-app.use(signalR);
-
-const port = process.env.PORT || 3000;
-
-server.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
-});
+const connection = new signalR.HubConnectionBuilder()
+    .withUrl(`${serviceEndpoint}/chatHub`, { accessTokenFactory: () => accessKey })
+    .build();

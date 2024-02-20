@@ -7,16 +7,16 @@ $(window).on('load', async function(){
     //builder.Services.AddCors(x => x.AddPolicy("AllowAll", p =>{ p.SetIsOriginAllowed( _ =>true).AllowAnyHeader().AllowAnyMethod().AllowCredentials(); }));
     
     let apiBaseUrl
-    //  if(location.hostname === "localhost" || location.hostname === "127.0.0.1") {
-    //     console.log("Running locally!")
-    //     apiBaseUrl = 'http://localhost:7071'
-    // }else {
-    //     console.log("Running online!")
-    //     apiBaseUrl = window.location.origin
-    // }
-    apiBaseUrl = 'http://localhost:3000'
+     if(location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+        console.log("Running locally!")
+        apiBaseUrl = 'http://localhost:7071'
+    }else {
+        console.log("Running online!")
+        apiBaseUrl = window.location.origin
+    }
+ 
     const connection = new signalR.HubConnectionBuilder()
-    .withUrl(`${apiBaseUrl}/signalr/chatHub`)
+    .withUrl(`${apiBaseUrl}/chatHub`)
     .configureLogging(signalR.LogLevel.Information)
     .build();
 
