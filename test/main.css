@@ -1,0 +1,137 @@
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-rbutton {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+.open-lbutton {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  left: 28px;
+  width: 280px;
+}
+
+.chat-header {
+  height: 40;
+  color:white;
+  text-align: center;
+  margin: 0 auto 0;
+}
+
+.container {
+  width: 300px;
+  height: 550px;
+  background-image: linear-gradient(to right, #1c00f2, #453f96);
+  border: 3px solid #f1f1f1;
+  position: fixed;
+  bottom: 10px;
+  left: 15px;
+  display: none;
+}
+
+.container-header {
+  height: 50px;
+  width: 300px;
+  float: right;
+  display: flex;
+  flex-direction: row;
+}
+
+.msg-inbox {
+  height: 420px;
+  width:auto;
+  background-color: #ddd;
+  overflow:hidden; overflow-y:scroll;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Outgoing chats */
+.outgoing-chat {
+  max-width: 270px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  align-self: flex-end;
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.outgoing-chat p{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* Incoming chats */
+.received-chat {
+  max-width: 270px;
+  background-color: #00aeff;
+  padding: 20px;
+  border-radius: 8px;
+  align-self: flex-start;
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.received-chat p{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.msg-input {
+  border: 0;
+  outline: none;
+  padding: 10px;
+  width: 250px;
+  max-height: 50px;
+  bottom: 5px;
+  float:left;
+  height: auto;
+  min-height: 16px;
+  max-height: 64px;
+  overflow: hidden;
+  resize: none;
+}
+::placeholder {
+  color: #000;
+}
+
+textarea {
+  border: 0;
+  outline: none;
+  padding: 10px;
+  width: 250px;
+  bottom: 5px;
+  float: left;
+  height: auto;
+  min-height: 34px;
+  max-height: 64px;
+  overflow: scroll;
+  resize: none;
+  position: absolute;
+  font-family: Arial, Helvetica, sans-serif ;
+}
+
+.send-img {
+  float: "right";
+}.send-img:hover{
+  background-color: #555;
+}
