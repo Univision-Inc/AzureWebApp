@@ -16,7 +16,7 @@ $(window).on('load', async function(){
     }
  
     const connection = new signalR.HubConnectionBuilder()
-    .withUrl(`${apiBaseUrl}/chatHub`)
+    .withUrl(`${apiBaseUrl}/signalr/chatHub`)
     .configureLogging(signalR.LogLevel.Information)
     .build();
 
